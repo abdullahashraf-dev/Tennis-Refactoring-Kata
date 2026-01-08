@@ -53,13 +53,13 @@ export class TennisGame1 implements TennisGame {
 
   private getScoreWhenPlayersScoreLessThanFourPointsAndNotEqual(): string {
     let score: string = '';
-    let tempScore: number = 0;
-     for (let i = 1; i < 3; i++) {
-        if (i === 1) tempScore = this.m_score1;
-        else { score += '-'; tempScore = this.m_score2; }
-       score+= this.getScoreBasedOnTempScore(tempScore);
-      }
-      return score;
+    let tempScore: number = this.m_score1;
+    score+= this.getScoreBasedOnTempScore(tempScore);
+
+    score += '-';
+    tempScore = this.m_score2;
+    score+= this.getScoreBasedOnTempScore(tempScore);
+    return score;
   }
   private getScoreBasedOnTempScore(tempScore: number): string {
     switch (tempScore) {
