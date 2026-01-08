@@ -1,8 +1,6 @@
 import { TennisGame } from './TennisGame';
 
 export class TennisGame1 implements TennisGame {
-  private m_score1: number = 0;
-  private m_score2: number = 0;
   private player1Name: string;
   private player2Name: string;
 
@@ -11,6 +9,8 @@ export class TennisGame1 implements TennisGame {
     this.player2Name = player2Name;
   }
 
+  private m_score1: number = 0;
+  private m_score2: number = 0;
   wonPoint(playerName: string): void {
     if (playerName === 'player1')
       this.m_score1 += 1;
