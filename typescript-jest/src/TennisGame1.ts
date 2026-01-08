@@ -12,12 +12,15 @@ export class TennisGame1 implements TennisGame {
   private m_score1: number = 0;
   private m_score2: number = 0;
   wonPoint(playerName: string): void {
-    if (playerName === this.player1Name)
-    {
-      this.m_score1 += 1;
-      return
-    }
-      this.m_score2 += 1;
+    if (playerName === this.player1Name) {
+    this.m_score1++;
+    return;
+  }  
+  if (playerName === this.player2Name) {
+    this.m_score2++;
+    return;
+  } 
+    throw new Error(`Unknown player: ${playerName}`);
   }
 
   getScore(): string {
