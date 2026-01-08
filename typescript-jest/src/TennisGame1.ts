@@ -27,9 +27,7 @@ export class TennisGame1 implements TennisGame {
     else if (this.m_score1 >= 4 || this.m_score2 >= 4) {
       return this.getScoreWhenOnePlayerScoreAtLeastFourPoints();
     }
-    else {
       return this.getScoreWhenPlayersScoreLessThanFourPointsAndNotEqual();
-    }
   }
 
   private getScoreWhenPlayersScoreAreEqual(): string {
