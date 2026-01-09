@@ -13,75 +13,75 @@ export class TennisGame2 implements TennisGame {
     this.player2Name = player2Name;
   }
   
-  P1point: number = 0;
-  P2point: number = 0;
+  player1Point: number = 0;
+  player2Point: number = 0;
   getScore(): string {
     let score: string = '';
-    if(this.P1point === this.P2point) return this.getScoreWhenPlayersScoreAreEqual();
-    if (this.P1point > 0 && this.P2point === 0) {
-      if (this.P1point === 1)
+    if(this.player1Point === this.player2Point) return this.getScoreWhenPlayersScoreAreEqual();
+    if (this.player1Point > 0 && this.player2Point === 0) {
+      if (this.player1Point === 1)
         this.P1res = 'Fifteen';
-      if (this.P1point === 2)
+      if (this.player1Point === 2)
         this.P1res = 'Thirty';
-      if (this.P1point === 3)
+      if (this.player1Point === 3)
         this.P1res = 'Forty';
 
       this.P2res = 'Love';
       score = this.P1res + '-' + this.P2res;
     }
-    if (this.P2point > 0 && this.P1point === 0) {
-      if (this.P2point === 1)
+    if (this.player2Point > 0 && this.player1Point === 0) {
+      if (this.player2Point === 1)
         this.P2res = 'Fifteen';
-      if (this.P2point === 2)
+      if (this.player2Point === 2)
         this.P2res = 'Thirty';
-      if (this.P2point === 3)
+      if (this.player2Point === 3)
         this.P2res = 'Forty';
 
       this.P1res = 'Love';
       score = this.P1res + '-' + this.P2res;
     }
 
-    if (this.P1point > this.P2point && this.P1point < 4) {
-      if (this.P1point === 2)
+    if (this.player1Point > this.player2Point && this.player1Point < 4) {
+      if (this.player1Point === 2)
         this.P1res = 'Thirty';
-      if (this.P1point === 3)
+      if (this.player1Point === 3)
         this.P1res = 'Forty';
-      if (this.P2point === 1)
+      if (this.player2Point === 1)
         this.P2res = 'Fifteen';
-      if (this.P2point === 2)
+      if (this.player2Point === 2)
         this.P2res = 'Thirty';
       score = this.P1res + '-' + this.P2res;
     }
-    if (this.P2point > this.P1point && this.P2point < 4) {
-      if (this.P2point === 2)
+    if (this.player2Point > this.player1Point && this.player2Point < 4) {
+      if (this.player2Point === 2)
         this.P2res = 'Thirty';
-      if (this.P2point === 3)
+      if (this.player2Point === 3)
         this.P2res = 'Forty';
-      if (this.P1point === 1)
+      if (this.player1Point === 1)
         this.P1res = 'Fifteen';
-      if (this.P1point === 2)
+      if (this.player1Point === 2)
         this.P1res = 'Thirty';
       score = this.P1res + '-' + this.P2res;
     }
 
-    if (this.P1point > this.P2point && this.P2point >= 3) {
+    if (this.player1Point > this.player2Point && this.player2Point >= 3) {
       score = 'Advantage player1';
     }
 
-    if (this.P2point > this.P1point && this.P1point >= 3) {
+    if (this.player2Point > this.player1Point && this.player1Point >= 3) {
       score = 'Advantage player2';
     }
 
-    if (this.P1point >= 4 && this.P2point >= 0 && (this.P1point - this.P2point) >= 2) {
+    if (this.player1Point >= 4 && this.player2Point >= 0 && (this.player1Point - this.player2Point) >= 2) {
       score = 'Win for player1';
     }
-    if (this.P2point >= 4 && this.P1point >= 0 && (this.P2point - this.P1point) >= 2) {
+    if (this.player2Point >= 4 && this.player1Point >= 0 && (this.player2Point - this.player1Point) >= 2) {
       score = 'Win for player2';
     }
     return score;
   }
   private getScoreWhenPlayersScoreAreEqual(): string {
-    switch (this.P1point) {
+    switch (this.player1Point) {
         case 0:
           return 'Love-All';
         case 1:
@@ -96,12 +96,12 @@ export class TennisGame2 implements TennisGame {
   wonPoint(playerName: string): void {
     if (playerName === this.player1Name)
     {
-      this.P1point++;
+      this.player1Point++;
       return
     }
     if (playerName === this.player2Name)
     {
-      this.P2point++;
+      this.player2Point++;
       return
     }
     throw new Error(`Unknown player : ${playerName}`);
