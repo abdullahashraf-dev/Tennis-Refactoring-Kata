@@ -98,6 +98,11 @@ export class TennisGame2 implements TennisGame {
       this.P1point++;
       return
     }
-    this.P2point++;
+    if (player === this.player2Name)
+    {
+      this.P2point++;
+      return
+    }
+    throw new Error(`Unknown player: ${player}`);
   }
 }
