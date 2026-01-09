@@ -91,7 +91,7 @@ export class TennisGame2 implements TennisGame {
     }
     return score;
   }
-  
+
   P1Score(): void {
     this.P1point++;
   }
@@ -101,7 +101,7 @@ export class TennisGame2 implements TennisGame {
   }
 
   wonPoint(player: string): void {
-    if (player === 'player1')
+    if (player === this.player1Name)
       this.P1Score();
     else
       this.P2Score();
