@@ -92,17 +92,17 @@ export class TennisGame2 implements TennisGame {
     return score;
   }
 
-  wonPoint(player: string): void {
-    if (player === this.player1Name)
+  wonPoint(playerName: string): void {
+    if (playerName === this.player1Name)
     {
       this.P1point++;
       return
     }
-    if (player === this.player2Name)
+    if (playerName === this.player2Name)
     {
       this.P2point++;
       return
     }
-    throw new Error(`Unknown player: ${player}`);
+    throw new Error(`Unknown player : ${playerName}`);
   }
 }
