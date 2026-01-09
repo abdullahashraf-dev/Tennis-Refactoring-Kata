@@ -23,13 +23,10 @@ export class TennisGame1 implements TennisGame {
     throw new Error(`Unknown player: ${playerName}`);
   }
 
+
   getScore(): string {
-    if (this.m_score1 === this.m_score2) {
-     return this.getScoreWhenPlayersScoreAreEqual();
-    }
-    else if (this.m_score1 >= 4 || this.m_score2 >= 4) {
-      return this.getScoreWhenOnePlayerScoreAtLeastFourPoints();
-    }
+    if (this.m_score1 === this.m_score2) return this.getScoreWhenPlayersScoreAreEqual();
+    if (this.m_score1 >= 4 || this.m_score2 >= 4) return this.getScoreWhenOnePlayerScoreAtLeastFourPoints();
     return this.getScoreWhenPlayersScoreLessThanFourPointsAndNotEqual();
   }
 
