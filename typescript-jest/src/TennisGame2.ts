@@ -18,7 +18,7 @@ export class TennisGame2 implements TennisGame {
   getScore(): string {
     if(this.player1Point === this.player2Point) return this.getScoreWhenPlayersScoreAreEqual();
     if (this.player1Point < 4 && this.player2Point < 4) return this.getScoreWhenBothPlayersPointsLessThanFour();
-    return this.getScoreWhenOnePlayerScoreAtLeastFourPoints();
+    return this.getScoreWhenOnePlayerPointAtLeastFour();
   }
   private getScoreWhenPlayersScoreAreEqual(): string {
     switch (this.player1Point) {
@@ -52,7 +52,7 @@ export class TennisGame2 implements TennisGame {
     }
   }
 
-    private getScoreWhenOnePlayerScoreAtLeastFourPoints(): string {
+    private getScoreWhenOnePlayerPointAtLeastFour(): string {
      const minusResult: number = this.player1Point - this.player2Point;
      if(minusResult === 1) return 'Advantage player1';
      if(minusResult === -1) return 'Advantage player2';
