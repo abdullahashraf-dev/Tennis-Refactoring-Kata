@@ -18,11 +18,7 @@ export class TennisGame2 implements TennisGame {
   getScore(): string {
     let score: string = '';
     if(this.player1Point === this.player2Point) return this.getScoreWhenPlayersScoreAreEqual();
-    if (this.player1Point < 4 && this.player2Point < 4) {
-     this.P1res = this.getScoreBasedOnPlayerPoint(this.player1Point);
-      this.P2res = this.getScoreBasedOnPlayerPoint(this.player2Point);
-      score = this.P1res + '-' + this.P2res;
-    }
+    if (this.player1Point < 4 && this.player2Point < 4) return this.getScoreWhenBothPlayersPointsLessThanFour();
 
     if (this.player1Point > this.player2Point && this.player2Point >= 3) {
       score = 'Advantage player1';
@@ -51,6 +47,12 @@ export class TennisGame2 implements TennisGame {
         default:
           return 'Deuce';
       }
+  }
+
+  private getScoreWhenBothPlayersPointsLessThanFour(): string {
+     this.P1res = this.getScoreBasedOnPlayerPoint(this.player1Point);
+      this.P2res = this.getScoreBasedOnPlayerPoint(this.player2Point);
+      return this.P1res + '-' + this.P2res;
   }
 
     private getScoreBasedOnPlayerPoint(point: number): string {
