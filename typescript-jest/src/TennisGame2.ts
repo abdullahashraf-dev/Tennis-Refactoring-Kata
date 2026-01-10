@@ -19,24 +19,12 @@ export class TennisGame2 implements TennisGame {
     let score: string = '';
     if(this.player1Point === this.player2Point) return this.getScoreWhenPlayersScoreAreEqual();
     if (this.player1Point > 0 && this.player2Point === 0) {
-      if (this.player1Point === 1)
-        this.P1res = 'Fifteen';
-      if (this.player1Point === 2)
-        this.P1res = 'Thirty';
-      if (this.player1Point === 3)
-        this.P1res = 'Forty';
-
+     this.P1res = this.getScoreBasedOnPlayerPoint(this.player1Point);
       this.P2res = 'Love';
       score = this.P1res + '-' + this.P2res;
     }
     if (this.player2Point > 0 && this.player1Point === 0) {
-      if (this.player2Point === 1)
-        this.P2res = 'Fifteen';
-      if (this.player2Point === 2)
-        this.P2res = 'Thirty';
-      if (this.player2Point === 3)
-        this.P2res = 'Forty';
-
+      this.P2res = this.getScoreBasedOnPlayerPoint(this.player2Point);
       this.P1res = 'Love';
       score = this.P1res + '-' + this.P2res;
     }
@@ -91,6 +79,19 @@ export class TennisGame2 implements TennisGame {
         default:
           return 'Deuce';
       }
+  }
+
+    private getScoreBasedOnPlayerPoint(point: number): string {
+    switch (point) {
+      case 0:
+        return 'Love';
+      case 1:
+        return 'Fifteen';
+      case 2:
+        return 'Thirty';
+      default:
+        return 'Forty';
+    }
   }
 
   wonPoint(playerName: string): void {
