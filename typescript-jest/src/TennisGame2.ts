@@ -24,14 +24,9 @@ export class TennisGame2 implements TennisGame {
       score = this.P1res + '-' + this.P2res;
     }
 
-    if (this.player1Point > this.player2Point && this.player1Point < 4) {
+    if ((this.player1Point > this.player2Point && this.player1Point < 4) || (this.player2Point > this.player1Point && this.player2Point < 4)) {
       this.P1res = this.getScoreBasedOnPlayerPoint(this.player1Point);
       this.P2res = this.getScoreBasedOnPlayerPoint(this.player2Point);
-      score = this.P1res + '-' + this.P2res;
-    }
-    if (this.player2Point > this.player1Point && this.player2Point < 4) {
-      this.P2res = this.getScoreBasedOnPlayerPoint(this.player2Point);
-      this.P1res = this.getScoreBasedOnPlayerPoint(this.player1Point);
       score = this.P1res + '-' + this.P2res;
     }
 
