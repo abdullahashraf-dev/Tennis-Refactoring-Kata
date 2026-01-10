@@ -20,12 +20,12 @@ export class TennisGame2 implements TennisGame {
     if(this.player1Point === this.player2Point) return this.getScoreWhenPlayersScoreAreEqual();
     if (this.player1Point > 0 && this.player2Point === 0) {
      this.P1res = this.getScoreBasedOnPlayerPoint(this.player1Point);
-      this.P2res = 'Love';
+      this.P2res = this.getScoreBasedOnPlayerPoint(this.player2Point);
       score = this.P1res + '-' + this.P2res;
     }
     if (this.player2Point > 0 && this.player1Point === 0) {
       this.P2res = this.getScoreBasedOnPlayerPoint(this.player2Point);
-      this.P1res = 'Love';
+      this.P1res = this.getScoreBasedOnPlayerPoint(this.player1Point);
       score = this.P1res + '-' + this.P2res;
     }
 
